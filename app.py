@@ -5,10 +5,10 @@ app = Flask(__name__)
 # "Banco de dados" em memória
 usuarios = []
 
-# Criar usuário
-@app.route('/usuarios', methods=['POST'])
-def criar_usuario():
-    dados = request.get_json()
+@app.route('/')
+def home():
+    return {"mensagem": "API de usuários rodando com sucesso 🚀"}
+
 
     if not dados or "nome" not in dados or "email" not in dados:
         return jsonify({"erro": "Dados inválidos"}), 400
